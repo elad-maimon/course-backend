@@ -11,7 +11,9 @@ end
 (3..5).each { |followed_id| User.first.follow followed_id }
 User.last.follow 1
 
-4.times do
-  content = Faker::Lorem.sentence 5
-  User.find(1).posts.create! content: content
+3.times do
+  User.find(1).posts.create! content: Faker::Lorem.sentence(5)
+  User.find(2).posts.create! content: Faker::Lorem.sentence(5)
 end
+
+(2..4).each { |user_id| Post.first.like_by user_id }

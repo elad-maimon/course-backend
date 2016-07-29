@@ -2,11 +2,7 @@ class API::UsersController < API::APIController
   skip_before_action :validate_authentication, only: :create
 
   def index
-    respond_with User.all, each_serializer: ShortUserSerializer # TODO: make other long
-  end
-
-  def home
-    respond_with current_user
+    respond_with User.all, each_serializer: UserShortSerializer
   end
 
   def show
@@ -20,6 +16,10 @@ class API::UsersController < API::APIController
 
   def follow
     render json: 'follow'
+  end
+
+  def unfollow
+    render json: 'unfollow'
   end
 
   private
