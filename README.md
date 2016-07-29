@@ -1,24 +1,25 @@
-# README
+# Course Project Backend
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This reop meant to serve as a backend for the course project.
+Details about the project will be given seperately, for now, let's install and run.
 
-Things you may want to cover:
+## Installation
 
-* Ruby version
+Prerequisits:
+  - ruby 2.3.1
 
-* System dependencies
+Clone this project and install bundle:
 
-* Configuration
+    $ git clone git@github.com:elad-maimon/course-backend.git
+    $ cd course-backend
+    $ bin/setup
 
-* Database creation
+## Usage
 
-* Database initialization
+Run server:
 
-* How to run the test suite
+    $ bin/rails server  # will run server on localhost:3000/
 
-* Services (job queues, cache servers, search engines, etc.)
+To see API endpoints:
 
-* Deployment instructions
-
-* ...
+    $ bin/rails routes
