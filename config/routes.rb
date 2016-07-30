@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  apipie
+
   namespace :api, except: [:new, :edit], defaults: { format: :json } do
     post :login,  to: 'sessions#create'
     post :logout, to: 'sessions#destroy'

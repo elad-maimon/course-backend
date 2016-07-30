@@ -13,6 +13,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'responders'
+gem 'apipie-rails'
 
 group :development, :test do
   gem 'byebug', platform: :mri
