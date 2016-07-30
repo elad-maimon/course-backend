@@ -31,7 +31,7 @@ class API::V2::UsersController < API::APIController
     if action_name == 'create'
       params.permit :name, :email, :password
     else
-      params.permit :name, :interests
+      params.permit :name, interests: []
     end
   end
 

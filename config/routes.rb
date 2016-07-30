@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     post :login,  to: 'sessions#create'
     post :logout, to: 'sessions#destroy'
 
+    get :feed, to: 'v1/feed#index'
+
     resources :users, only: [:index, :show, :create], controller: 'v1/users' do
       post :follow,   on: :member
       post :unfollow, on: :member
@@ -16,6 +18,8 @@ Rails.application.routes.draw do
     end
 
     namespace :v2 do
+      get :feed, to: 'feed#index'
+
       resources :users, only: [:index, :show, :create, :update] do
         resources :posts do
           post :like,   on: :member

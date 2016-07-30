@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  belongs_to :user
+
   has_many :like_relations
   has_many :likes, through: :like_relations, source: :user
 
