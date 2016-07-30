@@ -1,6 +1,5 @@
 class User < ApplicationRecord
   has_secure_password
-  attr_accessor :auth_token
 
   has_many :posts, dependent: :destroy
   has_many :active_relationships,  class_name:  'Relationship',
@@ -12,14 +11,16 @@ class User < ApplicationRecord
   has_many :following, through: :active_relationships,  source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
 
+  attr_accessor :auth_token
+  serialize :interests, Array
+
   validates :name, presence: true, length: { maximum: 50 }
   validates :email, presence: true, length: { maximum: 250 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
 
   before_save { email.downcase! }
-
 
   def follow(user_id)
     active_relationships.create followed_id: user_id
