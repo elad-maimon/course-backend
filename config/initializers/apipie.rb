@@ -88,6 +88,7 @@ Apipie.configure do |config|
         ---
         $> HTTP/1.1 201 Created
         $> Set-Cookie: _team_leads_session=VTdON00zSkNibmd2....
+        $> {"user_id":"16"}
   EOS
 
   config.app_info['v2']          = <<-EOS

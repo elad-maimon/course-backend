@@ -7,7 +7,7 @@ class API::SessionsController < API::APIController
     user = User.find_by email: params[:email].downcase
     if user && user.authenticate(params[:password])
       log_in user
-      head :created
+      render json: { user_id: current_user.id }, status: :created
     else
       head :unauthorized
     end
